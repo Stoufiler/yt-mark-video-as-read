@@ -1,0 +1,124 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+.ytsi-host {
+  position: relative;
+}
+
+.ytsi-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: 500 12px/1 Roboto, Arial, sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(15, 15, 15, 0.85);
+}
+
+.ytsi-btn::before {
+  content: "✓";
+  font-weight: 700;
+}
+
+.ytsi-btn[data-state="pending"] {
+  cursor: progress;
+}
+
+.ytsi-btn[data-state="pending"]::before {
+  content: none;
+}
+
+.ytsi-btn[data-state="done"] {
+  background: #2e7d32;
+}
+
+.ytsi-btn:focus-visible {
+  outline: 2px solid #3ea6ff;
+  outline-offset: 2px;
+}
+
+/* Thumbnail button: shown on hover, on keyboard focus, or while it has a state. */
+.ytsi-btn--thumb {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 1000;
+  max-width: calc(100% - 12px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px 9px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.ytsi-host:hover > .ytsi-btn--thumb,
+.ytsi-btn--thumb:focus-visible,
+.ytsi-btn--thumb:not([data-state="idle"]) {
+  opacity: 1;
+}
+
+.ytsi-btn--thumb[data-state="idle"]:hover {
+  background: #000;
+}
+
+.ytsi-watched img {
+  opacity: 0.45;
+}
+
+/* Watch-page button, styled like YouTube's Like / Share buttons. */
+.ytsi-btn--watch {
+  height: 36px;
+  margin-left: 8px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: var(--yt-spec-text-primary, #0f0f0f);
+  background: var(--yt-spec-badge-chip-background, rgba(0, 0, 0, 0.05));
+}
+
+.ytsi-btn--watch[data-state="idle"]:hover {
+  background: var(--yt-spec-button-chip-background-hover, rgba(0, 0, 0, 0.1));
+}
+
+.ytsi-btn--watch[data-state="done"] {
+  color: #fff;
+}
+
+.ytsi-toast {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 100000;
+  max-width: min(420px, calc(100vw - 48px));
+  padding: 12px 16px;
+  border-radius: 8px;
+  font: 14px/1.4 Roboto, Arial, sans-serif;
+  color: #fff;
+  background: #323232;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ytsi-toast--visible {
+  opacity: 1;
+  transform: none;
+}
+
+.ytsi-toast--error {
+  background: #b3261e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ytsi-btn--thumb,
+  .ytsi-toast {
+    transition: none;
+  }
+}

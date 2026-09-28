@@ -1,0 +1,62 @@
+{
+  "extensionName": {
+    "message": "Marquer comme vue pour YouTube"
+  },
+  "extensionDescription": {
+    "message": "Marque n'importe quelle vidéo YouTube comme vue sur ton compte en un clic, sans dire à l'algorithme que tu n'es pas intéressé."
+  },
+  "menuMarkWatched": {
+    "message": "Marquer comme vue"
+  },
+  "buttonMark": {
+    "message": "Marquer comme vue"
+  },
+  "buttonMarking": {
+    "message": "Marquage…"
+  },
+  "buttonWatched": {
+    "message": "Vue"
+  },
+  "buttonTitleMark": {
+    "message": "Ajouter cette vidéo à ton historique YouTube"
+  },
+  "buttonTitleWatched": {
+    "message": "Déjà marquée comme vue"
+  },
+  "toastMarked": {
+    "message": "Marquée comme vue : $TITLE$",
+    "placeholders": {
+      "title": { "content": "$1" }
+    }
+  },
+  "errorInvalidLink": {
+    "message": "Ce lien n'est pas une vidéo YouTube."
+  },
+  "errorPageUnavailable": {
+    "message": "Impossible de charger la page de la vidéo (HTTP $STATUS$).",
+    "placeholders": {
+      "status": { "content": "$1" }
+    }
+  },
+  "errorNotLoggedIn": {
+    "message": "Tu n'es pas connecté à YouTube."
+  },
+  "errorNoPlayerData": {
+    "message": "Impossible de lire les informations de cette vidéo."
+  },
+  "errorNoTracking": {
+    "message": "YouTube ne permet pas de marquer cette vidéo comme vue."
+  },
+  "errorPingRejected": {
+    "message": "YouTube a refusé la demande (HTTP $STATUS$).",
+    "placeholders": {
+      "status": { "content": "$1" }
+    }
+  },
+  "errorUnknown": {
+    "message": "Impossible de marquer la vidéo comme vue : $DETAIL$",
+    "placeholders": {
+      "detail": { "content": "$1" }
+    }
+  }
+}

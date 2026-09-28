@@ -1,0 +1,9 @@
+{
+  "name": "yt-saw-it",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Extension Firefox pour marquer une vidéo YouTube comme vue",
+  "scripts": {
+    "test": "node --test"
+  }
+}

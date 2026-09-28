@@ -1,0 +1,25 @@
+{
+  "categories": {
+    "firefox": [
+      "photos-music-videos"
+    ]
+  },
+  "summary": {
+    "en-US": "Mark any YouTube video as watched on your account in one click, without telling the algorithm you're not interested. Perfect for videos you've already seen elsewhere.",
+    "fr": "Marque n'importe quelle vidéo YouTube comme vue sur ton compte en un clic, sans dire à l'algorithme que tu n'es pas intéressé. Idéal pour les vidéos déjà vues ailleurs."
+  },
+  "description": {
+    "en-US": "Already watched a video on another account, at a friend's place or on a shared TV? YouTube keeps recommending it to you. \"Not interested\" gets rid of it, but also tells the algorithm to show you less of that kind of content.\n\n<b>Mark as Watched for YouTube</b> adds the video to your watch history instead, exactly as if you had watched it to the end. YouTube stops treating it as new, and keeps recommending similar videos.\n\n<b>How to use it</b>\n<ul><li>Hover a thumbnail (home, recommendations, search, subscriptions) and click <b>✓ Mark as watched</b>.</li><li>Or right-click any video link and choose <b>Mark as watched</b>.</li><li>Or use the button next to Like / Share on a video page.</li></ul>\nA notification confirms it, and the thumbnail gets YouTube's red \"watched\" bar. If the video is the one playing, it jumps to the end and pauses.\n\n<b>Privacy</b>\n<ul><li>No data collection, no analytics, no external server: the add-on only talks to youtube.com, with your own session.</li><li>The list of videos you marked is only stored in your browser.</li><li>Nothing is played, no tab is opened.</li></ul>\nYou must be signed in to YouTube. Available in English and French.\n\n<i>This add-on is not affiliated with or endorsed by YouTube or Google.</i>",
+    "fr": "Tu as déjà vu une vidéo sur un autre compte, chez un ami ou sur une TV partagée ? YouTube continue de te la proposer. « Pas intéressé » la fait disparaître, mais dit aussi à l'algorithme de te montrer moins ce genre de contenu.\n\n<b>Marquer comme vue pour YouTube</b> ajoute plutôt la vidéo à ton historique, exactement comme si tu l'avais regardée jusqu'au bout. YouTube ne la considère plus comme nouvelle, et continue de te proposer des vidéos similaires.\n\n<b>Utilisation</b>\n<ul><li>Survole une miniature (accueil, suggestions, recherche, abonnements) et clique sur <b>✓ Marquer comme vue</b>.</li><li>Ou fais un clic droit sur un lien de vidéo → <b>Marquer comme vue</b>.</li><li>Ou utilise le bouton à côté de J'aime / Partager sur la page d'une vidéo.</li></ul>\nUne notification le confirme, et la miniature affiche la barre rouge « vue » de YouTube. Si c'est la vidéo en cours de lecture, elle passe à la fin et se met en pause.\n\n<b>Vie privée</b>\n<ul><li>Aucune collecte de données, aucune statistique, aucun serveur externe : l'extension ne communique qu'avec youtube.com, avec ta propre session.</li><li>La liste des vidéos marquées reste uniquement dans ton navigateur.</li><li>Rien n'est lu, aucun onglet n'est ouvert.</li></ul>\nIl faut être connecté à YouTube. Disponible en anglais et en français.\n\n<i>Cette extension n'est ni affiliée à YouTube ou Google, ni approuvée par eux.</i>"
+  },
+  "version": {
+    "license": "MPL-2.0",
+    "approval_notes": "No build step, no minification, no remote code: the submitted files are the source.\n\nHow it works (src/mark-watched.js): when the user clicks the button, the content script fetches https://www.youtube.com/watch?v=<id> with the user's cookies (content.fetch, same origin), reads ytInitialPlayerResponse.playbackTracking.videostatsPlaybackUrl / videostatsWatchtimeUrl, and requests both URLs on www.youtube.com with a full-playback position. This is what YouTube's own player does at the end of a video, and the same technique as yt-dlp's --mark-watched option. The only effect is that the video is added to the user's YouTube watch history.\n\nIf that video is currently open in the page's player (watch page or miniplayer), src/content.js also calls the player's own API through wrappedJSObject (getVideoData, getDuration, seekTo, pauseVideo on #movie_player / #shorts-player) to move it to the end and pause it. Otherwise the open player keeps reporting its real position and overwrites the \"watched\" state. No other page object is accessed. No request is made to any other host and no data is collected.\n\nTo test: sign in to YouTube, hover any thumbnail on the home page, click \"✓ Mark as watched\", then check https://www.youtube.com/feed/history. Right-clicking a video link also offers \"Mark as watched\"."
+  },
+  "homepage": {
+    "en-US": "https://github.com/Stoufiler/yt-mark-video-as-read"
+  },
+  "support_url": {
+    "en-US": "https://github.com/Stoufiler/yt-mark-video-as-read/issues"
+  }
+}

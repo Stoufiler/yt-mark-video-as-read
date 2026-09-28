@@ -1,0 +1,78 @@
+{
+  "extensionName": {
+    "message": "Mark as Watched for YouTube",
+    "description": "Add-on name."
+  },
+  "extensionDescription": {
+    "message": "Mark any YouTube video as watched on your account in one click, without telling the algorithm you're not interested.",
+    "description": "Add-on description shown in the add-ons manager."
+  },
+  "menuMarkWatched": {
+    "message": "Mark as watched",
+    "description": "Context menu item shown when right-clicking a video link."
+  },
+  "buttonMark": {
+    "message": "Mark as watched",
+    "description": "Button label on thumbnails and on the video page, before marking."
+  },
+  "buttonMarking": {
+    "message": "Marking…",
+    "description": "Button label while the request is in progress."
+  },
+  "buttonWatched": {
+    "message": "Watched",
+    "description": "Button label once the video is marked as watched."
+  },
+  "buttonTitleMark": {
+    "message": "Add this video to your YouTube watch history",
+    "description": "Tooltip of the button before marking."
+  },
+  "buttonTitleWatched": {
+    "message": "Already marked as watched",
+    "description": "Tooltip of the button once marked."
+  },
+  "toastMarked": {
+    "message": "Marked as watched: $TITLE$",
+    "description": "Confirmation notification.",
+    "placeholders": {
+      "title": { "content": "$1", "example": "Never Gonna Give You Up" }
+    }
+  },
+  "errorInvalidLink": {
+    "message": "This link isn't a YouTube video.",
+    "description": "Error: the link has no recognizable video ID."
+  },
+  "errorPageUnavailable": {
+    "message": "Couldn't load the video page (HTTP $STATUS$).",
+    "description": "Error: fetching the watch page failed.",
+    "placeholders": {
+      "status": { "content": "$1", "example": "500" }
+    }
+  },
+  "errorNotLoggedIn": {
+    "message": "You're not signed in to YouTube.",
+    "description": "Error: no signed-in account."
+  },
+  "errorNoPlayerData": {
+    "message": "Couldn't read this video's information.",
+    "description": "Error: the watch page didn't contain the expected player data."
+  },
+  "errorNoTracking": {
+    "message": "YouTube doesn't allow marking this video as watched.",
+    "description": "Error: the player data has no watch-tracking URLs (e.g. unavailable or restricted video)."
+  },
+  "errorPingRejected": {
+    "message": "YouTube rejected the request (HTTP $STATUS$).",
+    "description": "Error: a tracking request failed.",
+    "placeholders": {
+      "status": { "content": "$1", "example": "403" }
+    }
+  },
+  "errorUnknown": {
+    "message": "Couldn't mark the video as watched: $DETAIL$",
+    "description": "Error: unexpected failure (e.g. network error).",
+    "placeholders": {
+      "detail": { "content": "$1", "example": "NetworkError when attempting to fetch resource." }
+    }
+  }
+}
