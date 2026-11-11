@@ -5,6 +5,7 @@ export default {
     'package.json',
     'package-lock.json',
     'README.md',
+    'store',
     'test',
     'web-ext-config.mjs',
   ],
