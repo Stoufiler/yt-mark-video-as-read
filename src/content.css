@@ -71,18 +71,29 @@
   opacity: 0.45;
 }
 
-/* Watch-page button, styled like YouTube's Like / Share buttons. */
+/* Watch-page button, styled like YouTube's Like / Share buttons. YouTube sets
+   html[dark] for its dark theme; its CSS variables aren't reliably in scope. */
 .ytsi-btn--watch {
+  flex: none;
   height: 36px;
   margin-left: 8px;
   padding: 0 16px;
   font-size: 14px;
-  color: var(--yt-spec-text-primary, #0f0f0f);
-  background: var(--yt-spec-badge-chip-background, rgba(0, 0, 0, 0.05));
+  color: #0f0f0f;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .ytsi-btn--watch[data-state="idle"]:hover {
-  background: var(--yt-spec-button-chip-background-hover, rgba(0, 0, 0, 0.1));
+  background: rgba(0, 0, 0, 0.1);
+}
+
+html[dark] .ytsi-btn--watch:not([data-state="done"]) {
+  color: #f1f1f1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html[dark] .ytsi-btn--watch[data-state="idle"]:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .ytsi-btn--watch[data-state="done"] {

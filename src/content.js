@@ -23,8 +23,12 @@
 
   const LINK_SELECTOR = 'a[href*="/watch?v="], a[href*="/shorts/"]';
   const THUMB_CONTENT_SELECTOR = 'img, yt-image, yt-thumbnail-view-model, ytd-thumbnail';
-  const WATCH_ACTIONS_SELECTOR =
-    'ytd-watch-metadata #top-level-buttons-computed, ytd-watch-metadata #actions-inner';
+  // In order of preference. Not a single "A, B" selector: querySelector would
+  // return whichever comes first in the document, i.e. the wider #actions-inner.
+  const WATCH_ACTIONS_SELECTORS = [
+    'ytd-watch-metadata #top-level-buttons-computed',
+    'ytd-watch-metadata #actions-inner',
+  ];
 
   const ERROR_MESSAGES = {
     'page-unavailable': 'errorPageUnavailable',
@@ -174,7 +178,9 @@
       return;
     }
     if (!button) {
-      const container = document.querySelector(WATCH_ACTIONS_SELECTOR);
+      const container = WATCH_ACTIONS_SELECTORS
+        .map((selector) => document.querySelector(selector))
+        .find(Boolean);
       if (!container) return;
       button = container.appendChild(createButton('watch'));
     }
